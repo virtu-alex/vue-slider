@@ -15,6 +15,9 @@ Le caratteristiche minime richieste sono:
 
 Bonus:
 1- al click su una thumb, visualizzare in grande l'immagine corrispondente
+
+se l'immagine della thumb corrisponde all'immagine del carosello mostrale entrambi
+
 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente (questo richiederà qualcosa che non abbiamo visto)
 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce (questo richiederà degli eventi che non abbiamo visto)
 Consigli del giorno:
@@ -58,14 +61,6 @@ const root = new Vue({
                     'La Colombia è un paese che si trova sulla punta nord del Sud America.',
             },
         ]
-    }, computed: {
-        firstPosition() {
-            return this.currentIndex = 0
-        },
-        lastPosition() {
-            return this.currentIndex === this.images.length
-        },
-
     },
     methods: {
         goPrev() {
@@ -75,8 +70,13 @@ const root = new Vue({
         },
         goNext() {
             this.currentIndex++
-            if (this.currentIndex > this.images.length - 1)this.currentIndex = 0;
+            if (this.currentIndex > this.images.length - 1) this.currentIndex = 0;
 
+        },
+        sameImage(){
+            if(this.currentIndex === this.images.length){
+                
+            }
         }
     },
 })

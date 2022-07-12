@@ -17,7 +17,7 @@
     <div id="root" class="container">
         <div id="gallery">
             <!-- PREVIOUS BUTTON -->
-            <i v-show="!firstPosition" type="button" id="previous" class="btn btn-primary"
+            <i type="button" id="previous" class="btn btn-primary"
                 @click="goPrev()">PREVIOUS</i>
             <!-- CAROUSEL -->
             <div id="carousel">
@@ -25,12 +25,11 @@
                     :src="image.url" :alt="image.title">
             </div>
             <!-- NEXT-BUTTON -->
-            <i v-if="!lastPosition" type="button" id="next" class="btn btn-success" @click="goNext()">NEXT</i>
+            <i type="button" id="next" class="btn btn-success" @click="goNext()">NEXT</i>
         </div>
         <!-- CAROUSEL THUMBNAILS -->
-        <div class="d-flex" id="thumbnail">
-            <img v-for="(image, index) in images" :class="{'active scale' : currentIndex === index}" :src="image.url"
-                :alt="image.title">
+        <div class="d-flex py-3" id="thumbnail">
+            <img v-for="(image, index) in images" :class="{'active scale' : currentIndex === index}" :src="image.url" :alt="image.title" @click="sameImage()">
         </div>
     </div>
     <!-- <div class="autoplay">
@@ -38,5 +37,4 @@
     </div> -->
     <script src="js/script.js"></script>
 </body>
-
 </html>
